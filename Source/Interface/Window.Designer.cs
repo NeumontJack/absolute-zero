@@ -51,6 +51,8 @@
             // menuStrip
             // 
             this.menuStrip.BackColor = System.Drawing.SystemColors.ControlText;
+            this.menuStrip.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.gameMenu,
@@ -59,7 +61,7 @@
             this.aboutMenu});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(384, 24);
+            this.menuStrip.Size = new System.Drawing.Size(576, 32);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -74,39 +76,39 @@
             this.fileMenu.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fileMenu.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.fileMenu.Name = "fileMenu";
-            this.fileMenu.Size = new System.Drawing.Size(47, 20);
+            this.fileMenu.Size = new System.Drawing.Size(66, 26);
             this.fileMenu.Text = "File";
             // 
             // savePGNMenuItem
             // 
             this.savePGNMenuItem.Name = "savePGNMenuItem";
-            this.savePGNMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.savePGNMenuItem.Size = new System.Drawing.Size(270, 34);
             this.savePGNMenuItem.Text = "Save PGN";
             this.savePGNMenuItem.Click += new System.EventHandler(this.SavePGNClick);
             // 
             // saveOuputMenuItem
             // 
             this.saveOuputMenuItem.Name = "saveOuputMenuItem";
-            this.saveOuputMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.saveOuputMenuItem.Size = new System.Drawing.Size(270, 34);
             this.saveOuputMenuItem.Text = "Save Output";
             this.saveOuputMenuItem.Click += new System.EventHandler(this.SaveOutputClick);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(148, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(267, 6);
             // 
             // enterFENMenuItem
             // 
             this.enterFENMenuItem.Name = "enterFENMenuItem";
-            this.enterFENMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.enterFENMenuItem.Size = new System.Drawing.Size(270, 34);
             this.enterFENMenuItem.Text = "Enter FEN";
             this.enterFENMenuItem.Click += new System.EventHandler(this.EnterFENClick);
             // 
             // copyFENMenuItem
             // 
             this.copyFENMenuItem.Name = "copyFENMenuItem";
-            this.copyFENMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.copyFENMenuItem.Size = new System.Drawing.Size(270, 34);
             this.copyFENMenuItem.Text = "Copy FEN";
             this.copyFENMenuItem.Click += new System.EventHandler(this.CopyFENClick);
             // 
@@ -120,32 +122,32 @@
             this.gameMenu.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gameMenu.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.gameMenu.Name = "gameMenu";
-            this.gameMenu.Size = new System.Drawing.Size(47, 20);
+            this.gameMenu.Size = new System.Drawing.Size(66, 26);
             this.gameMenu.Text = "Game";
             // 
             // offerDrawMenuItem
             // 
             this.offerDrawMenuItem.Name = "offerDrawMenuItem";
-            this.offerDrawMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.offerDrawMenuItem.Size = new System.Drawing.Size(270, 34);
             this.offerDrawMenuItem.Text = "Offer Draw";
             this.offerDrawMenuItem.Click += new System.EventHandler(this.OfferDrawClick);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(141, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(267, 6);
             // 
             // restartMenuItem
             // 
             this.restartMenuItem.Name = "restartMenuItem";
-            this.restartMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.restartMenuItem.Size = new System.Drawing.Size(270, 34);
             this.restartMenuItem.Text = "Restart";
             this.restartMenuItem.Click += new System.EventHandler(this.RestartClick);
             // 
             // undoMoveMenuItem
             // 
             this.undoMoveMenuItem.Name = "undoMoveMenuItem";
-            this.undoMoveMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.undoMoveMenuItem.Size = new System.Drawing.Size(270, 34);
             this.undoMoveMenuItem.Text = "Undo Move";
             this.undoMoveMenuItem.Click += new System.EventHandler(this.UndoMoveClick);
             // 
@@ -160,41 +162,41 @@
             this.engineMenu.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.engineMenu.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.engineMenu.Name = "engineMenu";
-            this.engineMenu.Size = new System.Drawing.Size(61, 20);
+            this.engineMenu.Size = new System.Drawing.Size(86, 26);
             this.engineMenu.Text = "Engine";
             // 
             // searchTimeMenuItem
             // 
             this.searchTimeMenuItem.Name = "searchTimeMenuItem";
-            this.searchTimeMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.searchTimeMenuItem.Size = new System.Drawing.Size(200, 34);
             this.searchTimeMenuItem.Text = "Time";
             this.searchTimeMenuItem.Click += new System.EventHandler(this.SearchTimeClick);
             // 
             // searchDepthMenuItem
             // 
             this.searchDepthMenuItem.Name = "searchDepthMenuItem";
-            this.searchDepthMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.searchDepthMenuItem.Size = new System.Drawing.Size(200, 34);
             this.searchDepthMenuItem.Text = "Depth";
             this.searchDepthMenuItem.Click += new System.EventHandler(this.SearchDepthClick);
             // 
             // searchNodesMenuItem
             // 
             this.searchNodesMenuItem.Name = "searchNodesMenuItem";
-            this.searchNodesMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.searchNodesMenuItem.Size = new System.Drawing.Size(200, 34);
             this.searchNodesMenuItem.Text = "Nodes";
             this.searchNodesMenuItem.Click += new System.EventHandler(this.SearchNodesClick);
             // 
             // hashSizeMenuItem
             // 
             this.hashSizeMenuItem.Name = "hashSizeMenuItem";
-            this.hashSizeMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.hashSizeMenuItem.Size = new System.Drawing.Size(200, 34);
             this.hashSizeMenuItem.Text = "Hash Size";
             this.hashSizeMenuItem.Click += new System.EventHandler(this.HashSizeClick);
             // 
             // multiPVMenuItem
             // 
             this.multiPVMenuItem.Name = "multiPVMenuItem";
-            this.multiPVMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.multiPVMenuItem.Size = new System.Drawing.Size(200, 34);
             this.multiPVMenuItem.Text = "Multi PV";
             this.multiPVMenuItem.Click += new System.EventHandler(this.MultiPVClick);
             // 
@@ -206,20 +208,20 @@
             this.displayMenu.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.displayMenu.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.displayMenu.Name = "displayMenu";
-            this.displayMenu.Size = new System.Drawing.Size(68, 20);
+            this.displayMenu.Size = new System.Drawing.Size(96, 26);
             this.displayMenu.Text = "Display";
             // 
             // rotateBoardMenuItem
             // 
             this.rotateBoardMenuItem.Name = "rotateBoardMenuItem";
-            this.rotateBoardMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rotateBoardMenuItem.Size = new System.Drawing.Size(230, 34);
             this.rotateBoardMenuItem.Text = "Rotate Board";
             this.rotateBoardMenuItem.Click += new System.EventHandler(this.RotateBoardClick);
             // 
             // animationsMenuItem
             // 
             this.animationsMenuItem.Name = "animationsMenuItem";
-            this.animationsMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.animationsMenuItem.Size = new System.Drawing.Size(230, 34);
             this.animationsMenuItem.Text = "Animations";
             this.animationsMenuItem.Click += new System.EventHandler(this.AnimationsClick);
             // 
@@ -228,19 +230,20 @@
             this.aboutMenu.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aboutMenu.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.aboutMenu.Name = "aboutMenu";
-            this.aboutMenu.Size = new System.Drawing.Size(54, 20);
+            this.aboutMenu.Size = new System.Drawing.Size(76, 26);
             this.aboutMenu.Text = "About";
             this.aboutMenu.Click += new System.EventHandler(this.AboutClick);
             // 
             // Window
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 386);
+            this.ClientSize = new System.Drawing.Size(576, 594);
             this.Controls.Add(this.menuStrip);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.Name = "Window";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
