@@ -86,6 +86,7 @@
     <Compile Include="Source\Engine\PV.cs" />
     <Compile Include="Source\Engine\Search.cs" />
     <Compile Include="Source\Core\Colour.cs" />
+    <Compile Include="Source\Gameplay\Chess960.cs" />
     <Compile Include="Source\Interface\AnalysisBox.cs">
       <SubType>Form</SubType>
     </Compile>
