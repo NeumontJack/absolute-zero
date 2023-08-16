@@ -63,11 +63,27 @@ namespace AbsoluteZero {
             ShowInTaskbar = false;
         }
 
-        private void button2_Click(object sender, EventArgs e) //button for chess960
+        private void Chess960_Click(object sender, EventArgs e) //button for chess960
         {
             AnalysisBox NSBox = new AnalysisBox();
             NSsetup NSrules = new NSsetup();
 
+            if ((whiteHuman.Checked || whiteComputer.Checked) && (blackHuman.Checked || blackComputer.Checked))
+            {
+                IPlayer white = whiteHuman.Checked ? new Human() : new Engine() as IPlayer;
+                IPlayer black = blackHuman.Checked ? new Human() : new Engine() as IPlayer;
+
+                if (white is Human && black is Human)
+                    Terminal.Hide();
+                else
+                    Restrictions.MoveTime = 3000;
+
+                new Window() { Game = new Game(white, black) }.Show();
+                Visible = false;
+                ShowInTaskbar = false;
+            }
+            else
+                MessageBox.Show("Please select a player for each side.");
 
             new Thread(new ThreadStart(() => {
                 Application.Run(new Window() { AnalysisBox = NSBox });

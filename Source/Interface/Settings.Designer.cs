@@ -131,7 +131,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(14, 223);
+            this.button1.Location = new System.Drawing.Point(13, 175);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(306, 42);
@@ -142,19 +142,21 @@
             // 
             // Chess960
             // 
-            this.Chess960.Location = new System.Drawing.Point(14, 173);
+            this.Chess960.Font = new System.Drawing.Font("Consolas", 9.75F);
+            this.Chess960.Location = new System.Drawing.Point(14, 229);
+            this.Chess960.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Chess960.Name = "Chess960";
             this.Chess960.Size = new System.Drawing.Size(306, 42);
             this.Chess960.TabIndex = 5;
             this.Chess960.Text = "Chess960";
             this.Chess960.UseVisualStyleBackColor = true;
-            this.Chess960.Click += new System.EventHandler(this.button2_Click);
+            this.Chess960.Click += new System.EventHandler(this.Chess960_Click);
             // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 548);
+            this.ClientSize = new System.Drawing.Size(359, 319);
             this.Controls.Add(this.Chess960);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.blackPanel);
