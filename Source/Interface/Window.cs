@@ -10,7 +10,8 @@ namespace AbsoluteZero {
     /// <summary>
     /// Represents the main GUI window. 
     /// </summary>
-    partial class Window : Form {
+    partial class Window : Form
+    {
 
         /// <summary>
         /// The height of the menu bar. 
@@ -20,9 +21,11 @@ namespace AbsoluteZero {
         /// <summary>
         /// The game associated with the window. 
         /// </summary>
-        public Game Game {
+        public Game Game
+        {
             get { return _game; }
-            set {
+            set
+            {
                 _game = value;
                 UpdateMenu();
             }
@@ -32,14 +35,27 @@ namespace AbsoluteZero {
         /// <summary>
         /// The analysis control panel associated with the window. 
         /// </summary>
-        public AnalysisBox AnalysisBox {
+        public AnalysisBox AnalysisBox
+        {
             get { return _analysisBox; }
-            set {
+            set
+            {
                 _analysisBox = value;
                 UpdateMenu();
             }
         }
         private AnalysisBox _analysisBox;
+
+        public NSsetup NSsetup
+        {
+            get { return _nssetup; }
+            set
+            {
+                _nssetup = value;
+                UpdateMenu();
+            }
+        }
+        private NSsetup _nssetup;
 
         /// <summary>
         /// The target number of milliseconds between draw frames. 
@@ -50,7 +66,8 @@ namespace AbsoluteZero {
         /// Constructs a Window for the specified Game.
         /// </summary>
         /// <param name="game">The game to associate with the window.</param>
-        public Window() {
+        public Window()
+        {
             InitializeComponent();
 
             // Initialize properties and fields. 
@@ -62,7 +79,8 @@ namespace AbsoluteZero {
             Paint += DrawHandler;
 
             // Close the application when the window is closed. 
-            FormClosed += (sender, e) => {
+            FormClosed += (sender, e) =>
+            {
                 Application.Exit();
             };
 
@@ -71,12 +89,15 @@ namespace AbsoluteZero {
             BackColor = VisualPosition.LightColor;
 
             // Start draw thread. 
-            new Thread(new ThreadStart(() => {
-                while (true) {
+            new Thread(new ThreadStart(() =>
+            {
+                while (true)
+                {
                     Invalidate();
                     Thread.Sleep(DrawInterval);
                 }
-            })) {
+            }))
+            {
                 IsBackground = true
             }.Start();
         }
@@ -86,9 +107,11 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The mouse event.</param>
-        public void MouseUpHandler(Object sender, MouseEventArgs e) {
+        public void MouseUpHandler(Object sender, MouseEventArgs e)
+        {
             Game?.MouseUpHandler(e);
             AnalysisBox?.WindowMouseUpHandler(e);
+            /*            NSsetup?.WindowMouseUpHandler(e);*/
         }
 
         /// <summary>
@@ -96,7 +119,8 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The paint event.</param>
-        private void DrawHandler(Object sender, PaintEventArgs e) {
+        private void DrawHandler(Object sender, PaintEventArgs e)
+        {
             Graphics g = e.Graphics;
             g.SmoothingMode = SmoothingMode.HighSpeed;
             g.PixelOffsetMode = PixelOffsetMode.HighSpeed;
@@ -107,18 +131,35 @@ namespace AbsoluteZero {
 
             if (Game != null)
                 Game.Draw(g);
-            else if (AnalysisBox != null) {
+            else if (AnalysisBox != null)
+            {
                 AnalysisBox.DrawWindow(g);
-            } else {
+            }
+            else
+            {
                 VisualPosition.DrawDarkSquares(g);
                 VisualPosition.DrawPieces(g);
             }
+
+            if (Game != null)
+                Game.Draw(g);
+            else if (NSsetup != null)
+            {
+                /*                NSsetup.DrawWindow(g);*/
+            }
+            else
+            {
+                VisualPosition.DrawDarkSquares(g);
+                VisualPosition.DrawPieces(g);
+            }
+
         }
 
         /// <summary>
         /// Updates which menu components are enabled or checked. 
         /// </summary>
-        private void UpdateMenu() {
+        private void UpdateMenu()
+        {
             Boolean hasGame = Game != null;
 
             // Update File menu.
@@ -135,7 +176,8 @@ namespace AbsoluteZero {
             rotateBoardMenuItem.Checked = VisualPosition.Rotated;
             animationsMenuItem.Checked = VisualPosition.Animations;
 
-            if (hasGame) {
+            if (hasGame)
+            {
                 Boolean hasHuman = Game.White is Human || Game.Black is Human;
                 Boolean hasEngine = Game.White is Engine || Game.Black is Engine;
 
@@ -160,8 +202,10 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void SavePGNClick(Object sender, EventArgs e) {
-            using (SaveFileDialog dialog = new SaveFileDialog()) {
+        private void SavePGNClick(Object sender, EventArgs e)
+        {
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
                 dialog.Title = "Save PGN";
                 dialog.Filter = "PGN File|*.pgn|Text File|*.txt";
                 if (dialog.ShowDialog() == DialogResult.OK)
@@ -174,8 +218,10 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void SaveOutputClick(Object sender, EventArgs e) {
-            using (SaveFileDialog dialog = new SaveFileDialog()) {
+        private void SaveOutputClick(Object sender, EventArgs e)
+        {
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
                 dialog.Title = "Save Engine Output";
                 dialog.Filter = "Text File|*.txt";
                 if (dialog.ShowDialog() == DialogResult.OK)
@@ -188,10 +234,13 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void EnterFENClick(Object sender, EventArgs e) {
-            if (Game != null) {
+        private void EnterFENClick(Object sender, EventArgs e)
+        {
+            if (Game != null)
+            {
                 String fen = InputBox.Show("Please enter the FEN string.");
-                if (fen.Length > 0) {
+                if (fen.Length > 0)
+                {
                     Game.End();
                     Game.Reset();
                     Game.Start(fen);
@@ -204,7 +253,8 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void CopyFENClick(Object sender, EventArgs e) {
+        private void CopyFENClick(Object sender, EventArgs e)
+        {
             Clipboard.SetText(Game.GetFEN());
         }
 
@@ -213,7 +263,8 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void OfferDrawClick(Object sender, EventArgs e) {
+        private void OfferDrawClick(Object sender, EventArgs e)
+        {
             Game?.OfferDraw();
         }
 
@@ -222,7 +273,8 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void RestartClick(Object sender, EventArgs e) {
+        private void RestartClick(Object sender, EventArgs e)
+        {
             Game?.End();
             Game?.Reset();
             Game?.Start();
@@ -233,7 +285,8 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void UndoMoveClick(Object sender, EventArgs e) {
+        private void UndoMoveClick(Object sender, EventArgs e)
+        {
             Game?.UndoMove();
         }
 
@@ -242,14 +295,18 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void SearchTimeClick(Object sender, EventArgs e) {
-            while (true) {
+        private void SearchTimeClick(Object sender, EventArgs e)
+        {
+            while (true)
+            {
                 String input = InputBox.Show("Please specify the search time in milliseconds.", Restrictions.MoveTime.ToString());
                 Int32 value;
-                if (Int32.TryParse(input, out value) && value > 0) {
+                if (Int32.TryParse(input, out value) && value > 0)
+                {
                     Restrictions.MoveTime = value;
                     break;
-                } else
+                }
+                else
                     MessageBox.Show("Input must be a positive integer.");
             }
         }
@@ -259,14 +316,18 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void SearchDepthClick(Object sender, EventArgs e) {
-            while (true) {
+        private void SearchDepthClick(Object sender, EventArgs e)
+        {
+            while (true)
+            {
                 String input = InputBox.Show("Please specify the search depth.", Restrictions.Depth.ToString());
                 Int32 value;
-                if (Int32.TryParse(input, out value) && value > 0) {
+                if (Int32.TryParse(input, out value) && value > 0)
+                {
                     Restrictions.Depth = value;
                     break;
-                } else
+                }
+                else
                     MessageBox.Show("Input must be a positive integer.");
             }
         }
@@ -276,14 +337,18 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void SearchNodesClick(Object sender, EventArgs e) {
-            while (true) {
+        private void SearchNodesClick(Object sender, EventArgs e)
+        {
+            while (true)
+            {
                 String input = InputBox.Show("Please specify the nodes limit.", Restrictions.Nodes.ToString());
                 Int64 value;
-                if (Int64.TryParse(input, out value) && value > 0) {
+                if (Int64.TryParse(input, out value) && value > 0)
+                {
                     Restrictions.Nodes = value;
                     break;
-                } else
+                }
+                else
                     MessageBox.Show("Input must be a positive integer.");
             }
         }
@@ -293,18 +358,22 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void HashSizeClick(Object sender, EventArgs e) {
-            while (true) {
+        private void HashSizeClick(Object sender, EventArgs e)
+        {
+            while (true)
+            {
                 Engine engine = Game.White as Engine ?? Game.Black as Engine;
                 String input = InputBox.Show("Please specify the hash size in megabytes.", engine.HashAllocation.ToString());
                 Int32 value;
-                if (Int32.TryParse(input, out value) && value > 0) {
+                if (Int32.TryParse(input, out value) && value > 0)
+                {
                     if (Game.White is Engine)
                         (Game.White as Engine).HashAllocation = value;
                     if (Game.Black is Engine)
                         (Game.Black as Engine).HashAllocation = value;
                     return;
-                } else
+                }
+                else
                     MessageBox.Show("Input must be a positive integer.");
             }
         }
@@ -314,14 +383,18 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void MultiPVClick(Object sender, EventArgs e) {
-            while (true) {
+        private void MultiPVClick(Object sender, EventArgs e)
+        {
+            while (true)
+            {
                 String input = InputBox.Show("Please specify the number of principal variations.", Restrictions.PrincipalVariations.ToString());
                 Int32 value;
-                if (Int32.TryParse(input, out value) && value > 0) {
+                if (Int32.TryParse(input, out value) && value > 0)
+                {
                     Restrictions.PrincipalVariations = value;
                     break;
-                } else
+                }
+                else
                     MessageBox.Show("Input must be a positive integer.");
             }
         }
@@ -331,7 +404,8 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void RotateBoardClick(Object sender, EventArgs e) {
+        private void RotateBoardClick(Object sender, EventArgs e)
+        {
             VisualPosition.Rotated ^= true;
             UpdateMenu();
         }
@@ -341,7 +415,8 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void AnimationsClick(Object sender, EventArgs e) {
+        private void AnimationsClick(Object sender, EventArgs e)
+        {
             VisualPosition.Animations ^= true;
             UpdateMenu();
         }
@@ -351,8 +426,35 @@ namespace AbsoluteZero {
         /// </summary>
         /// <param name="sender">The sender of the event.</param>
         /// <param name="e">The raised event.</param>
-        private void AboutClick(Object sender, EventArgs e) {
+        private void AboutClick(Object sender, EventArgs e)
+        {
             MessageBox.Show("Absolute Zero is a chess engine written in C#, developed for fun and to learn about game tree searching. Its playing strength has been and will continue to steadily increase as more techniques are added to its arsenal. \n\nIt supports the UCI protocol when ran with command-line parameter \"-u\". While in UCI mode it also accepts commands such as \"perft\" and \"divide\". Type \"help\" to see the full list of commands. \n\nZONG ZHENG LI");
         }
+
+        private void play960ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AnalysisBox NSBox = new AnalysisBox();
+         /*   if (Game != null)
+            {*/
+                String fen = InputBox.Show("Please enter the FEN string.");
+            /*if (fen.Length > 0)
+            {*/
+                NSBox.Hide();
+                    //Game.Reset();
+                    Game.Start(fen);
+                }
+
+            //}
+
+        private void check960SetupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //if statement
+            //checks if king is between two rooks
+            //checksthat bishops are on opposite colors
+            //if either of the previous checks are false, print message "not legal setup"
+            //if both are true, start game with chosen setup
+        }
     }
-}
+    }
+/*}
+*/

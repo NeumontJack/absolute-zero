@@ -1,5 +1,4 @@
-﻿using AbsoluteZero.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -130,7 +129,7 @@ namespace AbsoluteZero {
         /// <summary>
         /// Constructs an AnalysisBox. 
         /// </summary>
-        public AnalysisBox() { 
+        public AnalysisBox() {
             InitializeComponent();
 
             // Initialize event handlers. 
@@ -478,19 +477,6 @@ namespace AbsoluteZero {
             _pv.Clear();
             _pvIndex = 0;
             UpdateGuiState();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Back_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void AnalysisBox_Load(object sender, EventArgs e)
-        {
         }
     }
 }

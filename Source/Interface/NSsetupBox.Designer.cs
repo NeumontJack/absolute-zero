@@ -1,7 +1,5 @@
-﻿namespace AbsoluteZero
-{
-    partial class AnalysisBox
-    {
+﻿namespace AbsoluteZero {
+    partial class AnalysisBox {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -11,10 +9,8 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
                 components.Dispose();
             }
             base.Dispose(disposing);
@@ -26,8 +22,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             this.searchButton = new System.Windows.Forms.Button();
             this.trackBar = new System.Windows.Forms.TrackBar();
             this.whitePanel = new System.Windows.Forms.GroupBox();
@@ -40,8 +35,6 @@
             this.nextButton = new System.Windows.Forms.Button();
             this.resetBoardButton = new System.Windows.Forms.Button();
             this.previousButton = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
             this.whitePanel.SuspendLayout();
             this.SuspendLayout();
@@ -63,7 +56,7 @@
             this.trackBar.Location = new System.Drawing.Point(582, 42);
             this.trackBar.Maximum = 7;
             this.trackBar.Name = "trackBar";
-            this.trackBar.Size = new System.Drawing.Size(189, 69);
+            this.trackBar.Size = new System.Drawing.Size(189, 45);
             this.trackBar.TabIndex = 2;
             this.trackBar.Value = 4;
             this.trackBar.Scroll += new System.EventHandler(this.TrackBarScroll);
@@ -85,7 +78,7 @@
             this.blackRadio.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.blackRadio.Location = new System.Drawing.Point(73, 14);
             this.blackRadio.Name = "blackRadio";
-            this.blackRadio.Size = new System.Drawing.Size(90, 27);
+            this.blackRadio.Size = new System.Drawing.Size(60, 19);
             this.blackRadio.TabIndex = 1;
             this.blackRadio.Text = "Black";
             this.blackRadio.UseVisualStyleBackColor = true;
@@ -98,7 +91,7 @@
             this.whiteRadio.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.whiteRadio.Location = new System.Drawing.Point(10, 14);
             this.whiteRadio.Name = "whiteRadio";
-            this.whiteRadio.Size = new System.Drawing.Size(90, 27);
+            this.whiteRadio.Size = new System.Drawing.Size(60, 19);
             this.whiteRadio.TabIndex = 0;
             this.whiteRadio.TabStop = true;
             this.whiteRadio.Text = "White";
@@ -122,7 +115,7 @@
             this.fenTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fenTextBox.Location = new System.Drawing.Point(370, 11);
             this.fenTextBox.Name = "fenTextBox";
-            this.fenTextBox.Size = new System.Drawing.Size(394, 27);
+            this.fenTextBox.Size = new System.Drawing.Size(394, 20);
             this.fenTextBox.TabIndex = 7;
             this.fenTextBox.Text = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
             this.fenTextBox.TextChanged += new System.EventHandler(this.FenTextBoxChanged);
@@ -133,7 +126,7 @@
             this.pvsTextBox.Location = new System.Drawing.Point(546, 45);
             this.pvsTextBox.Name = "pvsTextBox";
             this.pvsTextBox.ReadOnly = true;
-            this.pvsTextBox.Size = new System.Drawing.Size(34, 30);
+            this.pvsTextBox.Size = new System.Drawing.Size(34, 23);
             this.pvsTextBox.TabIndex = 4;
             this.pvsTextBox.Text = "16";
             this.pvsTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -143,7 +136,7 @@
             this.pvsLabel.AutoSize = true;
             this.pvsLabel.Location = new System.Drawing.Point(514, 49);
             this.pvsLabel.Name = "pvsLabel";
-            this.pvsLabel.Size = new System.Drawing.Size(43, 23);
+            this.pvsLabel.Size = new System.Drawing.Size(28, 15);
             this.pvsLabel.TabIndex = 8;
             this.pvsLabel.Text = "PVs";
             // 
@@ -186,31 +179,11 @@
             this.previousButton.UseVisualStyleBackColor = true;
             this.previousButton.Click += new System.EventHandler(this.PreviousClick);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(770, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 23);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "<- copy for";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(805, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 23);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Chess 960";
-            // 
             // AnalysisBox
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 311);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(774, 117);
             this.Controls.Add(this.previousButton);
             this.Controls.Add(this.resetBoardButton);
             this.Controls.Add(this.nextButton);
@@ -229,7 +202,6 @@
             this.Name = "AnalysisBox";
             this.ShowIcon = false;
             this.Text = "Control Panel";
-            this.Load += new System.EventHandler(this.AnalysisBox_Load);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             this.whitePanel.ResumeLayout(false);
             this.whitePanel.PerformLayout();
@@ -252,7 +224,5 @@
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Button resetBoardButton;
         private System.Windows.Forms.Button previousButton;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
     }
 }

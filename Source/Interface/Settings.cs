@@ -62,5 +62,24 @@ namespace AbsoluteZero {
             Visible = false;
             ShowInTaskbar = false;
         }
+
+        private void button2_Click(object sender, EventArgs e) //button for chess960
+        {
+            AnalysisBox NSBox = new AnalysisBox();
+            NSsetup NSrules = new NSsetup();
+
+
+            new Thread(new ThreadStart(() => {
+                Application.Run(new Window() { AnalysisBox = NSBox });
+            }))
+            {
+                IsBackground = true
+            }.Start();
+
+            NSBox.Show();
+            NSrules.Show();
+            Visible = false;
+            ShowInTaskbar = false;
+        }
     }
 }

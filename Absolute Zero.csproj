@@ -76,6 +76,12 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Source\Interface\NSsetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Source\Interface\NSsetup.Designer.cs">
+      <DependentUpon>NSsetup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Source\Engine\Engine.cs" />
     <Compile Include="Source\Engine\PV.cs" />
     <Compile Include="Source\Engine\Search.cs" />
@@ -146,6 +152,9 @@
     <EmbeddedResource Include="Source\Interface\AnalysisBox.resx">
       <DependentUpon>AnalysisBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Source\Interface\NSsetup.resx">
+      <DependentUpon>NSsetup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Source\Interface\SelectionBox.resx">
       <DependentUpon>SelectionBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,8 +190,10 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
